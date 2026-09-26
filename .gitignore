@@ -1,0 +1,49 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Database & Backups
+data/
+backups/
+*.db
+*.sqlite
+*.sqlite3
+*.zip
+
+# Installer
+installer/
+*.iss
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Env
+.env
+.env.local
+
+# Temp
+temp/
+tmp/
