@@ -1,6 +1,5 @@
 name: finance_mobile
 description: برنامه مدیریت مالی موبایل
-publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -10,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   flet: ^0.24.1
-  wakelock_plus: 1.2.8
 
 dependency_overrides:
+  shared_preferences_android: 2.3.2
   wakelock_plus: 1.2.8
