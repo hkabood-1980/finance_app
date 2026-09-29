@@ -1,0 +1,18 @@
+[project]
+name = "finance-mobile"
+version = "1.0.0"
+description = "برنامه مدیریت مالی موبایل"
+requires-python = ">=3.9"
+
+[tool.flet]
+org = "com.hkabood"
+product = "مدیریت مالی"
+build_number = 1
+
+[tool.flet.app]
+path = "."
+
+[tool.flet.android]
+dependencies = [
+    "wakelock_plus==1.2.8",
+]
