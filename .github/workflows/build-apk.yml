@@ -32,11 +32,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.5'
           channel: 'stable'
-      
-      - name: Accept Android Licenses
-        run: yes | sdkmanager --licenses || true
+          cache: true
       
       - name: Build APK
         working-directory: mobile
