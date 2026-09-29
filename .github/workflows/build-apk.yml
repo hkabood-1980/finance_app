@@ -5,49 +5,47 @@ on:
     branches: [ main ]
     paths:
       - 'mobile/**'
-  workflow_dispatch:  # ← امکان اجرای دستی
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: 🐍 Setup Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
       
-      - name: 📦 Install dependencies
-        run: |
-          pip install flet==0.24.1
+      - name: Install dependencies
+        run: pip install flet==0.24.1
       
-      - name: ☕ Setup Java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
       
-      - name: 🚀 Setup Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.35.5'
           channel: 'stable'
       
-      - name: 🔧 Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses || true
       
-      - name: 📱 Build APK
+      - name: Build APK
         working-directory: mobile
         env:
           PUB_HOSTED_URL: https://pub.flutter-io.cn
           FLUTTER_STORAGE_BASE_URL: https://storage.flutter-io.cn
-        run: |
-          flet build apk --verbose
+        run: flet build apk --verbose
       
-      - name: 📤 Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: finance-mobile-apk
