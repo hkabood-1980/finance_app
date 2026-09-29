@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Database & Data
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Build artifacts
+build/
+dist/
+*.apk
+*.aab
+*.ipa
+
+# Flet
+.flutter-plugins-dependencies
+build/flutter/
+build/apk/
+
+# Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+flutter_export_environment.sh
+
+# Android
+android/
+.gradle/
+*.iml
+local.properties
+*.keystore
+*.jks
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Env
+.env
+.env.local
+
+# Temp
+temp/
+tmp/
