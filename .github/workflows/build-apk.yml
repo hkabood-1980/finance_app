@@ -11,18 +11,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Build APK
-        id: build
-        uses: flet-dev/flet-build-action@v1
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
-          target: apk
-          runner-python-version: "3.14"
-          bundled-python-version: "3.13"
-          build-number: ${{ github.run_number }}
+          python-version: "3.13"
+
+      - name: Install Flet
+        run: |
+          python -m pip install --upgrade pip
+          pip install flet==1.0.3 flet-charts==1.0.3
+
+      - name: Build APK
+        run: |
+          flet build apk --python-version 3.13
 
       - name: Upload APK
         uses: actions/upload-artifact@v7
         with:
-          path: ${{ steps.build.outputs.archive-path }}
-          archive: false
+          name: finance-mobile-apk
+          path: build/**/*.apk
           if-no-files-found: error
