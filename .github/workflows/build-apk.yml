@@ -9,18 +9,20 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build APK
+        id: build
         uses: flet-dev/flet-build-action@v1
         with:
           target: apk
-          runner-python-version: "3.13"
+          runner-python-version: "3.14"
           bundled-python-version: "3.13"
+          build-number: ${{ github.run_number }}
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: finance-mobile-apk
-          path: build/**/*.apk
+          path: ${{ steps.build.outputs.archive-path }}
+          archive: false
           if-no-files-found: error
