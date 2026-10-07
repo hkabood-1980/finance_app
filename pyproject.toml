@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "finance-mobile"
 version = "1.0.0"
 description = "Personal finance manager"
