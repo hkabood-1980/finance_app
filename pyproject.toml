@@ -11,3 +11,6 @@ dependencies = [
 [tool.flet]
 org = "com.hkabo"
 product = "Finance Manager"
+
+[tool.flet.flutter.pubspec.dependency_overrides]
+jni = "1.1.0"
